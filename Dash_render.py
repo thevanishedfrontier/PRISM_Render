@@ -95,7 +95,7 @@ data = pd.DataFrame({
 ## Needed to also scrape CA fips data for the chloropleth map
 FIPSURL = 'https://www.weather.gov/hnx/cafips'
 fr = requests.get(FIPSURL)
-fsoup = BeautifulSoup(fr.content, 'html5lib')
+fsoup = BeautifulSoup(fr.content, 'html.parser')
 td_elements = fsoup.find_all('td', bgcolor="#9DACD7")
 
 ## Lists to store counties and fips code
