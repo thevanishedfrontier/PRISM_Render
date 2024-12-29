@@ -159,6 +159,7 @@ map.show()
 #%%
 ## Creating the dash app
 app = dash.Dash(__name__)
+server = app.server
 
 app.layout = html.Div([
     html.H1("Interactive Dashboard of PRISM clients by county"),
