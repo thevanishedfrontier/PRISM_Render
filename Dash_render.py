@@ -183,7 +183,7 @@ def update_map(selected_column):
         "fips_code": False  ## Exclude fips code from hover data
     }
 
-    ## Generating the chloropleth map
+    ## Generating the choropleth map
     fig = px.choropleth(
         merged_data,
         geojson=json_counties,
@@ -197,13 +197,21 @@ def update_map(selected_column):
     ## Update bounds to exclude other states
     fig.update_geos(fitbounds="locations", visible=False)
     fig.update_layout(
-    ## Set background to white
+        ## Set background to white
         plot_bgcolor="white",
-        geo=dict(bgcolor="white")
+        geo=dict(bgcolor="white"),
+        title={
+            "text": "Decade in which each county joined PRISM" 
+            if selected_column == "decade" 
+            else "Number of programs county is enrolled in",
+            "x": 0.5, 
+            "xanchor": "center",
+            "yanchor": "top"
+        }
     )
 
-
     return fig
+
 
 ## Run the dash app
 if __name__ == "__main__":
