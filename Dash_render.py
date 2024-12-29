@@ -41,7 +41,7 @@ with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-c
 #URL used to scrape county information
 URL = 'https://www.prismrisk.gov/members/county/'
 r = requests.get(URL)
-soup = BeautifulSoup(r.content, 'html5lib')
+soup = BeautifulSoup(r.content, 'html.parser')
 
 #Intitialize empty vectors to store relevant information
 counties = []
