@@ -145,18 +145,6 @@ merged_data["decade"] = merged_data["Date"].apply(classify_decade)
 
 
 
-#%%
-
-map = px.choropleth(merged_data,
-                    geojson = json_counties,
-                    locations='fips_code',
-                    color = 'Number of Programs',
-                    scope = 'usa',
-                    hover_name = 'counties',)
-map.update_geos(fitbounds = 'locations', visible = False)
-
-map.show()
-#%%
 ## Creating the dash app
 app = dash.Dash(__name__)
 server = app.server
